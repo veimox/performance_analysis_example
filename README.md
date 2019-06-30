@@ -9,22 +9,28 @@ There is a tool called [perf](https://en.wikipedia.org/wiki/Perf_(Linux)) that c
 # Shut up and show me!
 
 ## Setup
-1. Clone the repo in a workspace.
-2. Install Qt Creator with the ROS plugin by [dowloading the latest version](https://github.com/ros-industrial/ros_qtc_plugin/releases).
-3. Setup the workspace in QtCreator. For that follow the [original wiki](https://ros-qtc-plugin.readthedocs.io/en/latest/).
-4. Compile (Shortcut with Ctrl+B)
-5. Add the custom executable. With catkin, all executables are outputed under *<workspace>/devel/lib/<my_package>*. We will create a configuration in QtCreator so it can use it. We will rename the custom executable to make it easier to find and use afterwards.
+1. Allow to run perf system wide by running. If is the first time, reboot:
+```bash
+echo -e "kernel.perf_event_paranoid=-1\nkernel.kptr_restrict=0" | sudo tee /etc/sysctl.d/10-perf.conf
+```
+If by running `cat /proc/sys/kernel/kptr_restrict` the result is 0, the permissions are set right.
+
+2. Clone the repo in a workspace.
+3. Install Qt Creator with the ROS plugin by [dowloading the latest version](https://github.com/ros-industrial/ros_qtc_plugin/releases).
+4. Setup the workspace in QtCreator. For that follow the [original wiki](https://ros-qtc-plugin.readthedocs.io/en/latest/).
+5. Compile (Shortcut with Ctrl+B)
+6. Add the custom executable. With catkin, all executables are outputed under *<workspace>/devel/lib/<my_package>*. We will create a configuration in QtCreator so it can use it. We will rename the custom executable to make it easier to find and use afterwards.
 ![alt text](docs/resources/custom_executable.gif "Custom executable")
 
 ## Performance analysis
 1. Go to the debug view.
 2. Select the custom executable created before from the bottom left menu.
-2. Change the tool to **Performance Analyzer**
-3. Start the debug session with the play button. The program should run.
-4. Start recording data by pressing the grey circle.
-5. Stop recording data by pressing the red circle again. Red means that is recording.
-6. Stop the node (if you want to, this step assumes free will).
-7. Et voila! You can visualize your data, a very useful view is the *Flame graph*.
+3. Change the tool to **Performance Analyzer**
+4. Start the debug session with the play button. The program should run.
+5. Start recording data by pressing the grey circle.
+6. Stop recording data by pressing the red circle again. Red means that is recording.
+7. Stop the node (if you want to, this step assumes free will).
+8. Et voila! You can visualize your data, a very useful view is the *Flame graph*.
 
 In the gif below it can be seen how the *veryComplicatedStuff* function is taking 85% of the execution of the process.
 
