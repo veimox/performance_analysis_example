@@ -5,27 +5,34 @@
 #include <vector>
 
 /**
- * @brief The PerformanceAnalysis class
+ * @brief The HardWorker class is a dummy class used to exemplify a class that
+ * can do a very simple and complicated operations. This is used as a testbench
+ * for running perf so we can see that the complicated operation actually takes
+ * more computer resoureces that the simple one.
  */
 class HardWorker {
  public:
   /**
-   * @brief PerformanceAnalysis Default constructor
+   * @brief HardWorker Default constructor
    */
   HardWorker();
 
   /**
-   * @brief veryComplicatedStuff
-   * @return
+   * @brief veryComplicatedStuff expresses a very complicated operation
+   * @return a random double
    */
   double veryComplicatedStuff();
 
   /**
-   * @brief verySimpleStuff
-   * @return
+   * @brief verySimpleStuff expresses a very simple operation
+   * @return a random double
    */
   double verySimpleStuff();
 
+  /**
+   * @brief rand generates a random number
+   * @return a random double
+   */
   double rand();
 
  private:
