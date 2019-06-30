@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>performance_analysis_example</name>
+    <version>0.0.0</version>
+    <description>
+    Dummy packages that serves as an example for how to use the performancea analysis tools provided along with Qt Creator for ROS.
+    </description>
+
+    <maintainer email="jorge@todo.todo">jorge</maintainer>
+    <license>BSD</license>
+
+    <buildtool_depend>catkin</buildtool_depend>
+
+    <depend>roscpp</depend>
+</package>
